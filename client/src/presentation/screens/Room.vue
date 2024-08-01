@@ -149,7 +149,7 @@ onMounted(() => {
   /**
    * Show main Telegram CTA
    */
-  showMainButton('Book now', () => {
+  showMainButton('Забронировать', () => {
     void buttonClicked()
   })
 
@@ -205,37 +205,37 @@ onBeforeUnmount(() => {
 
           <Section
             padded
-            title="Price"
+            title="Цены"
           >
             <List
               with-background
               standalone
             >
               <ListItem
-                label="Room price"
+                label="Стоимость комнаты"
               >
                 <template #right>
-                  <span>{{ Math.max(1, days) }} × {{ room.price }}$</span>
+                  <span>{{ Math.max(1, days) }} × {{ room.price }}  ₽</span>
                 </template>
               </ListItem>
               <ListItem
-                label="Breakfast"
+                label="Завтрак"
               >
                 <template #right>
-                  <span>Included</span>
+                  <span>Включен</span>
                 </template>
               </ListItem>
               <ListItem
-                label="Transfer"
+                label="Передача"
               >
                 <template #right>
-                  <Amount>100$</Amount>
+                  <Amount>100 ₽</Amount>
                 </template>
               </ListItem>
             </List>
           </Section>
           <Section
-            title="Amenities"
+            title="Удобства"
             padded
           >
             <List
@@ -254,7 +254,7 @@ onBeforeUnmount(() => {
         </Sections>
       </template>
     </PageWithHeader>
-    <FixedFooter>
+    <!-- <FixedFooter>
       <div
         v-if="room && isPriceFooterShowed"
         class="price"
@@ -275,7 +275,7 @@ onBeforeUnmount(() => {
           </template>
         </ListItem>
       </div>
-    </FixedFooter>
+    </FixedFooter> -->
   </div>
 </template>
 

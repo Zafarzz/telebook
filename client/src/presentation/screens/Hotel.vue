@@ -20,7 +20,7 @@ const id = computed(() => {
  * Hotel got by router param
  */
 const { hotel } = id.value !== undefined ? useHotel(id as ComputedRef<number>) : { hotel: undefined }
-
+console.log(hotel?.value)
 /**
  * Methods for Showing/hiding Back button
  */
@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
         :chart="hotel.chart"
       />
       <Section
-        title="About"
+        title="Про отель"
         padded
       >
         <Text>
@@ -149,7 +149,7 @@ onBeforeUnmount(() => {
         </Text>
       </Section>
       <Section
-        title="Rooms"
+        title="Места"
         padded
       >
         <List gapped>
@@ -186,14 +186,14 @@ onBeforeUnmount(() => {
             <template #right>
               <div class="room-cell-right">
                 <Amount>
-                  {{ room.price }}$
+                  {{ room.price }}₽
 
                   <template #postfix>
-                    / night
+                    / ночь
                   </template>
                 </Amount>
                 <div class="book">
-                  Book
+                  Забронировать
                 </div>
               </div>
             </template>
@@ -201,7 +201,7 @@ onBeforeUnmount(() => {
         </List>
       </Section>
       <Section
-        title="Reviews"
+        title="Отзывы"
         padded
       >
         <List
@@ -209,7 +209,7 @@ onBeforeUnmount(() => {
           standalone
         >
           <ListItem
-            v-for="(review, index) in reviews"
+            v-for="(review, index) in hotel.reviews"
             :id="`${index}-review`"
             :key="`review-${index}`"
             :avatar="{placeholder: review.name}"

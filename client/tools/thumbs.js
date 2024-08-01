@@ -8,15 +8,16 @@
  *   }
  * }
  */
-import fs from 'fs';
-import path from 'path';
-import sharp from 'sharp';
+import fs from "fs";
+import path from "path";
+import sharp from "sharp";
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const sourceDir = path.resolve(__dirname, '..' ,'public', 'pics');
-const mocksDir = path.resolve(__dirname, '..', 'src/infra/store', 'thumbs');
-const thumbsFileName = 'thumbs.json';
-
+const sourceDir = path.resolve(__dirname, "..", "public", "pics").slice(3);
+const mocksDir = path
+  .resolve(__dirname, "..", "src/infra/store", "thumbs")
+  .slice(3);
+const thumbsFileName = "thumbs.json";
 
 /**
  * Generates a Base 64 of 10x10 thumbnail for a given file
@@ -29,7 +30,7 @@ function generateThumbForFile(filePath) {
         if (err) reject(err);
 
         // Convert thumbnail buffer to base64 string
-        const thumbBase64 = buffer.toString('base64');
+        const thumbBase64 = buffer.toString("base64");
 
         resolve(thumbBase64);
       });
@@ -48,33 +49,31 @@ function readDir(dirPath) {
     });
   });
 }
-
-
-
 async function generateThumbnails() {
   const files = await readDir(sourceDir);
 
   const resultTuples = await Promise.all(
-    files.map(async file => {
+    files.map(async (file) => {
       // Only process image files
-      if (/\.(jpg|jpeg|png|gif)$/i.test(file) === false ) {
-        return
+      if (/\.(jpg|jpeg|png|gif)$/i.test(file) === false) {
+        return;
       }
 
       /**
        * Print file name in console with replacement of previous line
        */
       console.log(`🏞️  Generating thumbnail for ${file}`);
-
       const filePath = path.resolve(sourceDir, file);
 
       const thumb = await generateThumbForFile(filePath);
 
-      return [file, thumb]
+      return [file, thumb];
     })
-  )
-
-  return Object.fromEntries(resultTuples);
+  );
+  if (resultTuples) {
+    console.log(resultTuples.filter((e) => e !== undefined));
+    return Object.fromEntries(resultTuples.filter((e) => e !== undefined));
+  }
 }
 
 const thumbs = await generateThumbnails();
@@ -87,9 +86,3 @@ fs.writeFileSync(
 );
 
 console.log(`🎉  Done!`);
-
-
-
-
-
-

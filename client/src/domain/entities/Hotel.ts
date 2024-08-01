@@ -1,4 +1,4 @@
-import type { Award, Room, Chart, Rating } from '.'
+import type { Award, Room, Chart, Rating, Review } from ".";
 
 export default interface Hotel {
   id: number;
@@ -11,7 +11,8 @@ export default interface Hotel {
   pictureThumb?: string;
   ratingsCount: number;
   rating: Rating;
-  award: Award;
+  award?: Award;
   chart: Chart;
   rooms: Room[];
+  reviews: Review[];
 }

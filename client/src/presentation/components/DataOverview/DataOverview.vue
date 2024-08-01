@@ -5,7 +5,7 @@ import type { Rating, Award, Chart } from '@/domain/entities'
 
 defineProps<{
   rating: Rating;
-  award: Award;
+  award?: Award;
   chart: Chart;
 }>()
 </script>
@@ -13,7 +13,7 @@ defineProps<{
 <template>
   <div class="data-table">
     <DataOverviewItem
-      :title="`${rating.votesCount} ratings`"
+      :title="`${rating.votesCount} отзывa`"
     >
       <template #content>
         <Amount>
@@ -32,10 +32,11 @@ defineProps<{
       </template>
     </DataOverviewItem>
 
-    <div class="divider" />
+    <div   v-if="award" class="divider" />
 
     <DataOverviewItem
       title="Awards"
+      v-if="award"
     >
       <template #content>
         <div class="award">
