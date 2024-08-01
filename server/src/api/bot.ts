@@ -1,5 +1,5 @@
-import TelegramBot from 'node-telegram-bot-api'
-import Config from '../config.js'
+import TelegramBot from "node-telegram-bot-api";
+import Config from "../config.js";
 
 /**
  * Class for working with Telegram Bot aAPI
@@ -21,8 +21,8 @@ export default class Bot {
   public async run(): Promise<TelegramBot> {
     this.bot = new TelegramBot(this.config.botToken, {
       // @ts-ignore — undocumented option
-      testEnvironment: this.config.isTestEnvironment,
-    })
+      // testEnvironment: this.config.isTestEnvironment,
+    });
 
     console.log(`🤖 Bot is running...`);
 
@@ -31,30 +31,30 @@ export default class Bot {
      * If not — set it
      */
     try {
-      const whInfo = await this.bot.getWebHookInfo()
+      const whInfo = await this.bot.getWebHookInfo();
 
-      if ('url' in whInfo && whInfo.url !== '') {
-        console.log('🤖 WebHook info: ', whInfo);
+      if ("url" in whInfo && whInfo.url !== "") {
+        console.log("🤖 WebHook info: ", whInfo);
       } else {
         await this.setWebhook();
       }
     } catch (e) {
-      console.log('getWebHookInfo error', e);
+      console.log("getWebHookInfo error", e);
     }
 
     /**
      * Listen for messages from Telegram
-    */
-    this.bot.on('message', (msg) => {
+     */
+    this.bot.on("message", (msg) => {
       this.onMessage(msg);
-    })
+    });
 
     /**
      * Listen for pre_checkout_query event
      */
-    this.bot.on('pre_checkout_query', (update) => {
+    this.bot.on("pre_checkout_query", (update) => {
       this.preCheckoutQuery(update);
-    })
+    });
 
     return this.bot;
   }
@@ -65,35 +65,41 @@ export default class Bot {
    * @param msg - object that the bot got from Telegram
    */
   private async onMessage(msg: TelegramBot.Message): Promise<void> {
-    const chatId = msg.chat.id
+    const chatId = msg.chat.id;
 
-    console.log('📥', msg);
+    console.log("📥", msg);
 
     switch (msg.text) {
-      case '/start':
-        await this.replyStartMessage(chatId)
-        return
-      case '/help':
-        await this.replyHelpMessage(chatId)
-        return
+      case "/start":
+        await this.replyStartMessage(chatId);
+        return;
+      case "/help":
+        await this.replyHelpMessage(chatId);
+        return;
     }
 
     if (msg.successful_payment) {
-      console.log('💰 successful_payment', msg.successful_payment);
+      console.log("💰 successful_payment", msg.successful_payment);
 
-      await this.bot!.sendMessage(chatId, '*Your order was accepted! Have a nice trip! 🎉* \n\nIt is not a real payment, so you\'re not charged. The hotel exists only in our imagination. Thanks for testing! \n\nDiscover the source code and documentation: \nhttps://github.com/neSpecc/telebook', {
-        parse_mode: 'Markdown',
-        reply_markup: {
-          inline_keyboard: [
-            [{
-              text: `🦄 Open ${this.config.appName}`,
-              web_app: {
-                url: this.config.webAppUrl,
-              },
-            }],
-          ],
+      await this.bot!.sendMessage(
+        chatId,
+        "*Your order was accepted! Have a nice trip! 🎉* \n\nIt is not a real payment, so you're not charged. The hotel exists only in our imagination. Thanks for testing! \n\nDiscover the source code and documentation: \nhttps://github.com/neSpecc/telebook",
+        {
+          parse_mode: "Markdown",
+          reply_markup: {
+            inline_keyboard: [
+              [
+                {
+                  text: `🦄 Open ${this.config.appName}`,
+                  web_app: {
+                    url: this.config.webAppUrl,
+                  },
+                },
+              ],
+            ],
+          },
         }
-      })
+      );
 
       return;
     }
@@ -101,7 +107,7 @@ export default class Bot {
     /**
      * Send message with inline query containing a link to the mini-app
      */
-    this.sendAppButton(chatId)
+    this.sendAppButton(chatId);
   }
 
   /**
@@ -110,18 +116,24 @@ export default class Bot {
    * @param chatId - chat id to send message to
    */
   private async replyStartMessage(chatId: number): Promise<void> {
-    await this.bot!.sendMessage(chatId, 'Welcome to the hotel booking bot! Hope you enjoy the application I have 🏨', {
-      reply_markup: {
-        inline_keyboard: [
-          [{
-            text: `🦄 Open ${this.config.appName}`,
-            web_app: {
-              url: this.config.webAppUrl,
-            },
-          }],
-        ],
+    await this.bot!.sendMessage(
+      chatId,
+      "Welcome to the hotel booking bot! Hope you enjoy the application I have 🏨",
+      {
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: `🦄 Open ${this.config.appName}`,
+                web_app: {
+                  url: this.config.webAppUrl,
+                },
+              },
+            ],
+          ],
+        },
       }
-    });
+    );
   }
 
   /**
@@ -130,18 +142,24 @@ export default class Bot {
    * @param chatId - chat id to send message to
    */
   private async replyHelpMessage(chatId: number): Promise<void> {
-    await this.bot!.sendMessage(chatId, 'Actually I\'m just an example bot, so all I can do is to send you a link to the mini-app 🤖', {
-      reply_markup: {
-        inline_keyboard: [
-          [{
-            text: `🦄 Open ${this.config.appName}`,
-            web_app: {
-              url: this.config.webAppUrl,
-            },
-          }],
-        ],
+    await this.bot!.sendMessage(
+      chatId,
+      "Actually I'm just an example bot, so all I can do is to send you a link to the mini-app 🤖",
+      {
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: `🦄 Open ${this.config.appName}`,
+                web_app: {
+                  url: this.config.webAppUrl,
+                },
+              },
+            ],
+          ],
+        },
       }
-    });
+    );
   }
 
   /**
@@ -150,20 +168,25 @@ export default class Bot {
    * @param chatId - chat id to send message to
    */
   private async sendAppButton(chatId: number): Promise<void> {
-    await this.bot!.sendMessage(chatId, 'Click the button below to launch an app', {
-      reply_markup: {
-        inline_keyboard: [
-          [{
-            text: `🦄 Open ${this.config.appName}`,
-            web_app: {
-              url: this.config.webAppUrl,
-            },
-          }],
-        ],
-      },
-    })
+    await this.bot!.sendMessage(
+      chatId,
+      "Click the button below to launch an app",
+      {
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: `🦄 Open ${this.config.appName}`,
+                web_app: {
+                  url: this.config.webAppUrl,
+                },
+              },
+            ],
+          ],
+        },
+      }
+    );
   }
-
 
   /**
    * Handler for pre_checkout_query event
@@ -176,13 +199,13 @@ export default class Bot {
    * @param update - object that the bot got from Telegram
    */
   private preCheckoutQuery(update: TelegramBot.PreCheckoutQuery): void {
-    console.log('🤖 pre_checkout_query: ', update);
+    console.log("🤖 pre_checkout_query: ", update);
 
     /**
      * @todo validate order here: get order from database and compare with update
      */
 
-    this.bot!.answerPreCheckoutQuery(update.id, true)
+    this.bot!.answerPreCheckoutQuery(update.id, true);
   }
 
   /**
@@ -190,19 +213,24 @@ export default class Bot {
    */
   private async setWebhook(): Promise<void> {
     try {
-      console.log('🤖 setting a webhook to @BotFather: ', `${this.config.publicHost}/bot`);
+      console.log(
+        "🤖 setting a webhook to @BotFather: ",
+        `${this.config.publicHost}/bot`
+      );
 
-      const setHookResponse = await this.bot!.setWebHook(`${this.config.publicHost}/bot`);
+      const setHookResponse = await this.bot!.setWebHook(
+        `${this.config.publicHost}/bot`
+      );
 
-      if (setHookResponse === true){
-        console.log('🤖 webhook set ᕕ( ᐛ )ᕗ');
+      if (setHookResponse === true) {
+        console.log("🤖 webhook set ᕕ( ᐛ )ᕗ");
       } else {
-        console.warn('🤖 webhook not set (╯°□°）╯︵ ┻━┻');
-        console.warn('setHookResponse', setHookResponse);
+        console.warn("🤖 webhook not set (╯°□°）╯︵ ┻━┻");
+        console.warn("setHookResponse", setHookResponse);
       }
     } catch (e) {
-      console.warn('Can not set Telegram Webhook')
-      console.warn(e)
+      console.warn("Can not set Telegram Webhook");
+      console.warn(e);
     }
   }
 
@@ -212,11 +240,14 @@ export default class Bot {
    * @param chatId - chat id to send message to
    * @param messages - array of messages to send
    */
-  private async sendMessageQueue(chatId: TelegramBot.ChatId, messages: {text: string, options?: TelegramBot.SendMessageOptions}[]): Promise<void> {
+  private async sendMessageQueue(
+    chatId: TelegramBot.ChatId,
+    messages: { text: string; options?: TelegramBot.SendMessageOptions }[]
+  ): Promise<void> {
     messages.forEach((message, index) => {
       setTimeout(async () => {
-        await this.bot!.sendMessage(chatId, message.text, message.options)
+        await this.bot!.sendMessage(chatId, message.text, message.options);
       }, index * 500);
-    })
+    });
   }
 }
