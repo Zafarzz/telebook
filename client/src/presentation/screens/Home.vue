@@ -16,6 +16,7 @@ const {
   setEndDate,
   days,
   setHotels,
+  setCity,
   hotels:tripHotels
 } = useTripDetails()
 
@@ -107,11 +108,11 @@ function onAfterSearch(): void {
   setButtonLoader(false)
   hideMainButton()
 
-  setTimeout(() => {
-    if (searchSettings.value !== null) {
-      scrollTo(searchSettings.value.$el, 16)
-    }
-  }, 200)
+  // setTimeout(() => {
+  //   if (searchSettings.value !== null) {
+  //     scrollTo(searchSettings.value.$el, 16)
+  //   }
+  // }, 200)
 }
 
 /**
@@ -204,8 +205,13 @@ onMounted(() => {
   if (trip.city === 0) {
     selectDefaultLocation()
   }
-  // resetSearch()
-  search()
+  if (trip.city===undefined) {
+  resetSearch()
+    setCity(1)
+  }else{
+    search()
+
+  }
   requestAnimationFrame(() => {
     if (searchSettings.value !== null) {
       searchSettingsHeight.value = searchSettings.value.$el.offsetHeight

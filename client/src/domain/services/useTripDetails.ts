@@ -82,7 +82,7 @@ interface useTripDetailsComposableState {
 const trip = reactive<TripDetails>({
   startDate: new Date(),
   endDate: new Date(),
-  city: 0,
+  city: undefined,
   hotel: 0,
   room: 0,
   hotels: [],
@@ -145,7 +145,7 @@ export const useTripDetails = createSharedComposable(
      * Currently selected location based on trip details
      */
     const location = computed(() => {
-      return cities.value.find((city) => city.id === trip.city);
+      return cities.value.find((city) => city.id ?? 1 === trip.city);
     });
     const hotels = computed(() => {
       return trip.hotels;

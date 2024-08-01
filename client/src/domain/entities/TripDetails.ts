@@ -18,7 +18,7 @@ export default interface TripDetails {
   /**
    * Idd of the location of the trip
    */
-  city: City["id"];
+  city: City["id"] | undefined;
 
   /**
    * Selected hotel id
