@@ -59,7 +59,7 @@ watch(citiesFiltered, () => {
 
 onMounted(() => {
   if (trip.city !== 0) {
-    selectedId.value = trip.city
+    selectedId.value = trip.city??1
   }
 
   expand()
