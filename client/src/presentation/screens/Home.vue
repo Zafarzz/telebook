@@ -15,6 +15,8 @@ const {
   setStartDate,
   setEndDate,
   days,
+  setHotels,
+  hotels:tripHotels
 } = useTripDetails()
 
 /**
@@ -41,7 +43,7 @@ const isSearchFinished = ref(false)
 /**
  * Search results
  */
-const result = ref<Hotel[]>([])
+const result = ref<Hotel[]>(tripHotels.value??[])
 
 const { showMainButton, hideMainButton, setButtonLoader, expand, getViewportHeight, vibrate } = useTelegram()
 const { scrollTo } = useScroll()
@@ -83,7 +85,7 @@ const viewportHeight = ref(window.innerHeight)
  * Hook called before search
  */
 function onBeforeSearch(): void {
-  result.value = []
+  // result.value = []
 
   requestAnimationFrame(() => {
     isLoading.value = true
@@ -117,8 +119,9 @@ function onAfterSearch(): void {
  */
 function search(): void {
   onBeforeSearch()
+  console.log(trip.city,'city',result.value)
 
-  // setTimeout(() => {
+  setTimeout(() => {
     onAfterSearch()
 
     vibrate()
@@ -127,12 +130,15 @@ function search(): void {
       /**
        * Shuffle mocks to make it look more real
        */
-      const hotelsShuffled = hotels.sort(() => Math.random() - 0.5)
-
+      const hotelsShuffled = hotels.filter((e)=>e.city===trip.city)
+// setHotels(hotelsShuffled)
       // hotelsShuffled.forEach((hotel, i) => {
       result.value = hotelsShuffled
+      console.log(result.value,'hotels')
+      console.log(trip.city,'city')
+
       // })
-    // }, 200) // wait until Telegram expand is finished to prevent Cards going to minimized state
+    }, 200) // wait until Telegram expand is finished to prevent Cards going to minimized state
   // }, 3000)
 }
 
@@ -308,6 +314,7 @@ onBeforeUnmount(() => {
       >
         <List
           gapped
+          v-if="result.length"
           class="results"
         >
           <template

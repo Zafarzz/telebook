@@ -1,4 +1,5 @@
-import type City from './City'
+import type City from "./City";
+import Hotel from "./Hotel";
 
 /**
  * Structure describing information of the trip
@@ -17,7 +18,7 @@ export default interface TripDetails {
   /**
    * Idd of the location of the trip
    */
-  city: City['id'];
+  city: City["id"];
 
   /**
    * Selected hotel id
@@ -28,4 +29,5 @@ export default interface TripDetails {
    * The room in the selected hotel
    */
   room: number;
+  hotels: Hotel[];
 }

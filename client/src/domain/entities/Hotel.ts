@@ -1,3 +1,4 @@
+import { citiesAvailable } from "@/infra/store/cities/mock/cities";
 import type { Award, Room, Chart, Rating, Review } from ".";
 
 export default interface Hotel {
@@ -15,4 +16,5 @@ export default interface Hotel {
   chart: Chart;
   rooms: Room[];
   reviews: Review[];
+  city: number;
 }

@@ -8,6 +8,8 @@ import {
 } from "vue";
 import { useCities } from "./useCities";
 import type City from "../entities/City";
+import { Hotel } from "../entities";
+import { hotels } from "@/infra/store/hotels/mock/hotels";
 
 /**
  * Attributes of the useTripDetails composable
@@ -40,6 +42,7 @@ interface useTripDetailsComposableState {
    * @param hotel - Id of the hotel of the trip
    */
   setHotel: (hotel: TripDetails["hotel"]) => void;
+  setHotels: (hotels: TripDetails["hotels"]) => void;
 
   /**
    * Selects the room of the trip
@@ -70,6 +73,7 @@ interface useTripDetailsComposableState {
    *  - first location as location
    */
   selectDefault: () => void;
+  hotels: ComputedRef<Hotel[] | undefined>;
 }
 
 /**
@@ -81,6 +85,7 @@ const trip = reactive<TripDetails>({
   city: 0,
   hotel: 0,
   room: 0,
+  hotels: [],
 });
 
 /**
@@ -124,7 +129,9 @@ export const useTripDetails = createSharedComposable(
     function setHotel(hotel: TripDetails["hotel"]): void {
       trip.hotel = hotel;
     }
-
+    function setHotels(hotels: TripDetails["hotels"]): void {
+      trip.hotels = hotels;
+    }
     /**
      * Selects the room of the trip
      *
@@ -139,6 +146,9 @@ export const useTripDetails = createSharedComposable(
      */
     const location = computed(() => {
       return cities.value.find((city) => city.id === trip.city);
+    });
+    const hotels = computed(() => {
+      return trip.hotels;
     });
 
     /**
@@ -181,6 +191,8 @@ export const useTripDetails = createSharedComposable(
       location,
       selectDefault,
       days,
+      setHotels,
+      hotels,
     };
   }
 );
