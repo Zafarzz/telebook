@@ -118,12 +118,12 @@ function onAfterSearch(): void {
 function search(): void {
   onBeforeSearch()
 
-  setTimeout(() => {
+  // setTimeout(() => {
     onAfterSearch()
 
     vibrate()
 
-    setTimeout(() => {
+    // setTimeout(() => {
       /**
        * Shuffle mocks to make it look more real
        */
@@ -132,8 +132,8 @@ function search(): void {
       // hotelsShuffled.forEach((hotel, i) => {
       result.value = hotelsShuffled
       // })
-    }, 200) // wait until Telegram expand is finished to prevent Cards going to minimized state
-  }, 3000)
+    // }, 200) // wait until Telegram expand is finished to prevent Cards going to minimized state
+  // }, 3000)
 }
 
 /**
@@ -198,9 +198,8 @@ onMounted(() => {
   if (trip.city === 0) {
     selectDefaultLocation()
   }
-
-  resetSearch()
-
+  // resetSearch()
+  search()
   requestAnimationFrame(() => {
     if (searchSettings.value !== null) {
       searchSettingsHeight.value = searchSettings.value.$el.offsetHeight
@@ -304,7 +303,7 @@ onBeforeUnmount(() => {
         </List>
       </Section>
       <Section
-        v-if="isLoading === false"
+        v-if="true"
         padded
       >
         <List

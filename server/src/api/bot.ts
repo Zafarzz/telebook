@@ -20,8 +20,10 @@ export default class Bot {
    */
   public async run(): Promise<TelegramBot> {
     this.bot = new TelegramBot(this.config.botToken, {
-      // @ts-ignore — undocumented option
-      // testEnvironment: this.config.isTestEnvironment,
+      polling: true,
+
+      //@ts-ignore
+      // testEnvironment: true,
     });
 
     console.log(`🤖 Bot is running...`);

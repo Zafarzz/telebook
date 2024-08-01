@@ -88,7 +88,7 @@ async function buttonClicked(): Promise<void> {
     prices: [
       {
         label: `Room ${days.value} × ${room.value.price}$`,
-        amount: toPrice(room.value.price * days.value),
+        amount: toPrice (100*100) ,
       },
       {
         label: 'Transfer',
