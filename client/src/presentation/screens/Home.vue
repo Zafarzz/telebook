@@ -178,7 +178,7 @@ function resetSearch(): void {
   result.value = []
   isLoading.value = undefined
   isSearchFinished.value = false
-  showMainButton('Search', () => {
+  showMainButton('Поиск', () => {
     search()
   })
 }
@@ -224,7 +224,7 @@ onBeforeUnmount(() => {
       ref="landing"
       class="landing"
       title="Telebook"
-      caption="As simple as messaging"
+      caption="Так же просто, как отправить сообщения"
       :class="{
         'landing--loading': isLoading,
         'landing--loaded': isSearchFinished,
@@ -258,7 +258,7 @@ onBeforeUnmount(() => {
           with-background
           standalone
         >
-          <ListItem label="Travel date">
+          <ListItem label="Дата поездки">
             <template #right>
               <DatePickerCompact
                 :value="trip.startDate"
@@ -275,7 +275,7 @@ onBeforeUnmount(() => {
               @date-pick="(date) => setStartDate(date)"
             />
           </ListItemExpandable>
-          <ListItem label="End date">
+          <ListItem label="Дата окончания">
             <template #right>
               <DatePickerCompact
                 :value="trip.endDate"
@@ -296,7 +296,7 @@ onBeforeUnmount(() => {
             />
           </ListItemExpandable>
           <ListItem
-            label="Location"
+            label="Расположение"
             right-icon="chevron-right"
             :right-icon-label="location?.title"
             to="/location"
@@ -317,7 +317,7 @@ onBeforeUnmount(() => {
           >
             <ListCard
               v-if="index === 3 || index === 5"
-              :title="index === 3 ? 'Users choice' : 'Hotel of the year'"
+              :title="index === 3 ? 'Выбор пользователя' : 'Отель года'"
               :picture="hotel.picture"
               :picture-thumb="(hotel.pictureThumb as string)"
             >
@@ -337,7 +337,7 @@ onBeforeUnmount(() => {
               <template #collapsed>
                 <Sections>
                   <Section
-                    title="About"
+                    title="О"
                     padded
                   >
                     <Text>
@@ -375,11 +375,11 @@ onBeforeUnmount(() => {
                 <div class="room-cell-right">
                   <Amount>
                     <template #topline>
-                      from
+                      с
                     </template>
-                    {{ shortNumber(hotel.price * days) }}$
+                    {{ shortNumber(hotel.price * days) }} ₽
                     <template #subline>
-                      for {{ days }} night{{ days > 1 ? 's' : '' }}
+                      за {{ days }} ночь
                     </template>
                   </Amount>
                 </div>

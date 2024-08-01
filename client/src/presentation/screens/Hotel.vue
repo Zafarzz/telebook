@@ -20,7 +20,7 @@ const id = computed(() => {
  * Hotel got by router param
  */
 const { hotel } = id.value !== undefined ? useHotel(id as ComputedRef<number>) : { hotel: undefined }
-console.log(hotel?.value)
+
 /**
  * Methods for Showing/hiding Back button
  */
