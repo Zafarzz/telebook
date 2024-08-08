@@ -22,8 +22,8 @@ export const amenities = [
     icon: "square-filled-safe",
     name: "Сейф для хранения ценностей",
   },
-  {
-    icon: "square-filled-sport",
-    name: "Спортивные сооружения",
-  },
+  // {
+  //   icon: "square-filled-sport",
+  //   name: "Спортивные сооружения",
+  // },
 ];

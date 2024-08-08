@@ -5,4 +5,8 @@ export default interface Room {
   price: number;
   picture: string;
   pictureThumb?: string;
+  amenities?: {
+    icon: string;
+    name: string;
+  }[];
 }

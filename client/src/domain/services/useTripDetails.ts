@@ -145,7 +145,9 @@ export const useTripDetails = createSharedComposable(
      * Currently selected location based on trip details
      */
     const location = computed(() => {
-      return cities.value.find((city) => city.id ?? 1 === trip.city);
+      return cities.value.find((city) =>
+        city?.id === undefined ? 1 : city?.id === trip.city
+      );
     });
     const hotels = computed(() => {
       return trip.hotels;

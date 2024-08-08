@@ -7,6 +7,7 @@ import { amenities } from '@/infra/store/hotels/mock/amenities'
 import { formatDate } from '@/infra/utils/date'
 import { spaced } from '@/infra/utils/number'
 import { useRouter } from 'vue-router'
+import { rooms } from '@/infra/store/rooms'
 
 const props = defineProps({
   /**
@@ -47,7 +48,7 @@ const room = computed(() => {
     return undefined
   }
 
-  return hotel.value.rooms.find(room => room.id === roomId.value)
+  return rooms[roomId.value as number]
 })
 
 /**
@@ -243,7 +244,7 @@ onBeforeUnmount(() => {
               standalone
             >
               <ListItem
-                v-for="(amenity, index) in amenities"
+                v-for="(amenity, index) in room.amenities"
                 :key="'amenity' + index"
                 :icon="amenity.icon"
                 :label="amenity.name"

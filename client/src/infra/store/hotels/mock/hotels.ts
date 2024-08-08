@@ -35,26 +35,7 @@ const hotelsMock: Hotel[] = [
     },
     price: 4090,
     picture: "/pics/hotel-1.jpg",
-    rooms: [
-      {
-        id: 1,
-        title: "Бюджетный TWIN",
-        subtitle: `В номере:2 основных места`,
-        price: 4090,
-        picture: "/pics/room-1-1.jpg",
-      },
-      {
-        id: 2,
-        title: "Стандарт",
-        subtitle: `В номере:
-1 двуспальная кровать
- или 
-2 односпальные кровати
-2 основных места и 1 дополнительное`,
-        price: 4790,
-        picture: "/pics/room-1-2.jpg",
-      },
-    ],
+    rooms: [1, 2],
     reviews: [
       {
         id: 1,
@@ -98,24 +79,7 @@ const hotelsMock: Hotel[] = [
     },
     price: 2653,
     picture: "/pics/hotel-2.jpg",
-    rooms: [
-      {
-        id: 1,
-        title: "стандарт",
-        subtitle: `В номере:2 основных места`,
-        price: 2653,
-        picture: "/pics/room-2-1.jpg",
-      },
-      {
-        id: 2,
-        title: "Стандарт Улучшенный",
-        subtitle: `В номере:
-2 основных места
-`,
-        price: 2950,
-        picture: "/pics/room-2-2.jpg",
-      },
-    ],
+    rooms: [3, 4],
     reviews: [
       {
         id: 1,
@@ -160,24 +124,7 @@ const hotelsMock: Hotel[] = [
     },
     price: 1750,
     picture: "/pics/hotel-3.jpg",
-    rooms: [
-      {
-        id: 1,
-        title: "стандарт",
-        subtitle: `В номере:2 основных места`,
-        price: 2653,
-        picture: "/pics/room-2-1.jpg",
-      },
-      {
-        id: 2,
-        title: "Стандарт Улучшенный",
-        subtitle: `В номере:
-2 основных места
-`,
-        price: 2950,
-        picture: "/pics/room-2-2.jpg",
-      },
-    ],
+    rooms: [4, 5, 6, 7, 8, 9, 10],
     reviews: [
       {
         id: 1,
@@ -189,7 +136,7 @@ const hotelsMock: Hotel[] = [
     city: 2,
   },
   {
-    id: 3,
+    id: 4,
     title: "Мартон Palace",
     subtitle:
       "Гостиница Мартон Palace расположена в городе Краснодар в 1,9 км от центра.",
@@ -222,24 +169,7 @@ const hotelsMock: Hotel[] = [
     },
     price: 4290,
     picture: "/pics/hotel-4.jpg",
-    rooms: [
-      {
-        id: 1,
-        title: "стандарт",
-        subtitle: `В номере:2 основных места`,
-        price: 2653,
-        picture: "/pics/room-2-1.jpg",
-      },
-      {
-        id: 2,
-        title: "Стандарт Улучшенный",
-        subtitle: `В номере:
-2 основных места
-`,
-        price: 2950,
-        picture: "/pics/room-2-2.jpg",
-      },
-    ],
+    rooms: [11, 12, 13, 14, 15],
     reviews: [
       {
         id: 1,
@@ -251,7 +181,7 @@ const hotelsMock: Hotel[] = [
     city: 2,
   },
   {
-    id: 4,
+    id: 5,
     title: "Мартон Стачки",
     subtitle:
       "Гостиница Мартон Стачки расположена в городе Ростов-на-Дону в 4,7 км от центра.",
@@ -296,7 +226,7 @@ const hotelsMock: Hotel[] = [
     city: 7,
   },
   {
-    id: 4,
+    id: 6,
     title: "Marton Шолохова",
     subtitle:
       "Гостиница Marton Шолохова расположена в городе Ростов-на-Дону в 6,2 км от центра.",
@@ -329,7 +259,7 @@ const hotelsMock: Hotel[] = [
     },
     price: 2890,
     picture: "/pics/hotel-6.jpg",
-    rooms: [],
+    rooms: [16, 17, 18, 19],
     reviews: [
       {
         id: 1,
@@ -340,268 +270,234 @@ const hotelsMock: Hotel[] = [
     ],
     city: 7,
   },
-  // {
-  //   id: 2,
-  //   title: 'Mountain View Lodge',
-  //   subtitle: 'Escape to the mountains and enjoy stunning views and fresh air.',
-  //   description: 'Our lodge is nestled in the heart of the mountains, surrounded by breathtaking views and fresh air. Our cozy rooms and cabins are designed to provide the ultimate comfort and relaxation, with rustic decor and modern amenities.',
-  //   address: '5678 Mountain Rd, Mountain View, CO',
-  //   rating: {
-  //     votesCount: '1.7K',
-  //     rating: 4.3,
-  //     stars: 4,
-  //   },
-  //   ratingsCount: Math.floor(Math.random() * 9801) + 200,
-  //   award: {
-  //     name: 'Best of 2022',
-  //     section: 'Mountain View',
-  //   },
-  //   chart: {
-  //     place: 1,
-  //     category: 'Mountain View',
-  //   },
-  //   price: Math.floor(Math.random() * 311) + 90,
-  //   picture: '/pics/hotel-2.jpg',
-  //   rooms: [
-  //     {
-  //       id: 1,
-  //       title: 'Cozy Cabin',
-  //       subtitle: 'Experience the great outdoors in our cozy cabins.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-2-1.jpg',
-  //     },
-  //     {
-  //       id: 2,
-  //       title: 'Mountain View Suite',
-  //       subtitle: 'Enjoy stunning mountain views from your private balcony.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-2-2.jpg',
-  //     },
-  //     {
-  //       id: 3,
-  //       title: 'Rustic Room',
-  //       subtitle: 'Experience the rustic charm of our cozy rooms.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-2-3.jpg',
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 3,
-  //   title: 'Seaside Resort',
-  //   subtitle: 'Experience the beauty of the ocean and relax in luxury.',
-  //   description: 'Our resort is located right on the beach, with stunning views of the ocean and luxurious amenities. Our rooms and suites are designed to provide the ultimate comfort and relaxation, with modern decor and top-notch facilities.',
-  //   address: '1234 Ocean Blvd, Seaside, CA',
-  //   rating: {
-  //     votesCount: '2.3K',
-  //     rating: 4.5,
-  //     stars: 4.5,
-  //   },
-  //   ratingsCount: Math.floor(Math.random() * 9801) + 200,
-  //   award: {
-  //     name: 'Best of 2022',
-  //     section: 'Seaside',
-  //   },
-  //   chart: {
-  //     place: 2,
-  //     category: 'Seaside',
-  //   },
-  //   price: Math.floor(Math.random() * 311) + 90,
-  //   picture: '/pics/hotel-3.jpg',
-  //   rooms: [
-  //     {
-  //       id: 1,
-  //       title: 'Ocean View Suite',
-  //       subtitle: 'Enjoy stunning ocean views from your private balcony.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-3-1.jpg',
-  //     },
-  //     {
-  //       id: 2,
-  //       title: 'Beachfront Bungalow',
-  //       subtitle: 'Experience the beauty of the ocean up close in our beachfront bungalows.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-3-2.jpg',
-  //     },
-  //     {
-  //       id: 3,
-  //       title: 'Luxury Suite',
-  //       subtitle: 'Indulge in luxury in our spacious and elegant suites.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-3-3.jpg',
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 4,
-  //   title: 'City Center Hotel',
-  //   subtitle: 'Experience the excitement of the city and stay in the heart of it all.',
-  //   description: 'Our hotel is located in the bustling city center, with easy access to all the top attractions and entertainment. Our rooms and suites are designed to provide the ultimate comfort and convenience, with modern decor and all the amenities you need.',
-  //   address: '4567 Main St, City Center, NY',
-  //   rating: {
-  //     votesCount: '1.2K',
-  //     rating: 4.1,
-  //     stars: 4,
-  //   },
-  //   ratingsCount: Math.floor(Math.random() * 9801) + 200,
-  //   award: {
-  //     name: 'Best of 2022',
-  //     section: 'City Center',
-  //   },
-  //   chart: {
-  //     place: 3,
-  //     category: 'City Center',
-  //   },
-  //   price: Math.floor(Math.random() * 311) + 90,
-  //   picture: '/pics/hotel-4.jpg',
-  //   rooms: [
-  //     {
-  //       id: 1,
-  //       title: 'City View Suite',
-  //       subtitle: 'Enjoy stunning views of the city from your private balcony.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-4-1.jpg',
-  //     },
-  //     {
-  //       id: 2,
-  //       title: 'Luxury Room',
-  //       subtitle: 'Indulge in luxury in our spacious and elegant rooms.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-4-2.jpg',
-  //     },
-  //     {
-  //       id: 3,
-  //       title: 'Cozy Room',
-  //       subtitle: 'Experience the comfort of our cozy rooms.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-4-3.jpg',
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 5,
-  //   title: 'Desert Oasis Resort',
-  //   subtitle: 'Escape to the desert and enjoy the ultimate relaxation and tranquility.',
-  //   description: 'Our resort is located in the heart of the desert, surrounded by stunning landscapes and breathtaking views. Our rooms and suites are designed to provide the ultimate comfort and relaxation, with modern decor and top-notch facilities.',
-  //   address: '7890 Desert Rd, Desert Oasis, AZ',
-  //   rating: {
-  //     votesCount: '1.5K',
-  //     rating: 4.4,
-  //     stars: 4.5,
-  //   },
-  //   ratingsCount: Math.floor(Math.random() * 9801) + 200,
-  //   award: {
-  //     name: 'Best of 2022',
-  //     section: 'Desert Oasis',
-  //   },
-  //   chart: {
-  //     place: 4,
-  //     category: 'Desert Oasis',
-  //   },
-  //   price: Math.floor(Math.random() * 311) + 90,
-  //   picture: '/pics/hotel-5.jpg',
-  //   rooms: [
-  //     {
-  //       id: 1,
-  //       title: 'Desert View Suite',
-  //       subtitle: 'Enjoy stunning desert views from your private balcony.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-5-1.jpg',
-  //     },
-  //     {
-  //       id: 2,
-  //       title: 'Luxury Bungalow',
-  //       subtitle: 'Indulge in luxury in our spacious and elegant bungalows.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-5-2.jpg',
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 6,
-  //   title: 'Tropical Paradise Resort',
-  //   subtitle: 'Escape to a tropical paradise and enjoy the sun, sand, and sea.',
-  //   description: 'Our resort is located on a beautiful tropical island, surrounded by crystal-clear waters and white sandy beaches. Our luxurious rooms and suites are designed to provide the ultimate comfort and relaxation, with modern decor and top-notch facilities.',
-  //   address: '1234 Palm Tree Blvd, Tropical Island',
-  //   rating: {
-  //     votesCount: '3.5K',
-  //     rating: 4.8,
-  //     stars: 5,
-  //   },
-  //   ratingsCount: Math.floor(Math.random() * 9801) + 200,
-  //   award: {
-  //     name: 'Best of 2022',
-  //     section: 'Tropical Island',
-  //   },
-  //   chart: {
-  //     place: 1,
-  //     category: 'Tropical Island',
-  //   },
-  //   price: Math.floor(Math.random() * 311) + 90,
-  //   picture: '/pics/hotel-6.jpg',
-  //   rooms: [
-  //     {
-  //       id: 1,
-  //       title: 'Beachfront Suite',
-  //       subtitle: 'Experience the beauty of the ocean up close in our beachfront suites.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-6-1.jpg',
-  //     },
-  //     {
-  //       id: 2,
-  //       title: 'Tropical Villa',
-  //       subtitle: 'Indulge in luxury in our spacious and elegant villas.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-6-2.jpg',
-  //     },
-  //     {
-  //       id: 3,
-  //       title: 'Ocean View Room',
-  //       subtitle: 'Enjoy stunning ocean views from your private balcony.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-6-3.jpg',
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 7,
-  //   title: 'Historic Inn',
-  //   subtitle: 'Step back in time and experience the charm of a bygone era.',
-  //   description: 'Our historic inn is located in a quaint town, surrounded by beautiful architecture and rich history. Our cozy rooms and suites are designed to provide the ultimate comfort and relaxation, with antique decor and modern amenities.',
-  //   address: '7890 Main St, Historic Town, MA',
-  //   rating: {
-  //     votesCount: '1.2K',
-  //     rating: 4.1,
-  //     stars: 4,
-  //   },
-  //   ratingsCount: Math.floor(Math.random() * 9801) + 200,
-  //   award: {
-  //     name: 'Best of 2022',
-  //     section: 'Historic Town',
-  //   },
-  //   chart: {
-  //     place: 3,
-  //     category: 'Historic Town',
-  //   },
-  //   price: Math.floor(Math.random() * 311) + 90,
-  //   picture: '/pics/hotel-7.jpg',
-  //   rooms: [
-  //     {
-  //       id: 1,
-  //       title: 'Antique Room',
-  //       subtitle: 'Experience the charm of a bygone era in our antique rooms.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-7-1.jpg',
-  //     },
-  //     {
-  //       id: 2,
-  //       title: 'Historic Suite',
-  //       subtitle: 'Indulge in luxury in our spacious and elegant suites.',
-  //       price: Math.floor(Math.random() * 951) + 50,
-  //       picture: '/pics/room-7-2.jpg',
-  //     },
-  //   ],
-  // },
+  {
+    id: 7,
+    title: "Marton Сказка",
+    subtitle:
+      "Гостиница Marton Сказка расположена в городе Ростов-на-Дону в 1,5 км от центра.",
+    description: `Здесь созданы все условия для комфортного проживания — есть кондиционер, телевизор, фен, утюг, чай/кофе в номерах, посуда, кофеварка, микроволновая печь, посудомойка, кухонная плита, сейф, отопление, терраса, мини-бар. Вы можете выбрать на Яндекс Путешествиях любой из 80 доступных сейчас номеров. По запросу предоставляются номера для курящих. Уборка — каждый день.
+
+  В гостинице есть бар, конференц-зал. И вы наверняка захотите отдохнуть у бассейна — он тут тоже есть. Есть возможность взять напрокат машину, велосипед, мотоцикл.
+
+  У каждого гостя будет доступ в интернет, вы сможете выложить фотографии, отправить файл или позвонить родным по видео.
+
+  Планируйте поездку так, чтобы точно заселиться в гостиницу. Заезд здесь начинается с 14:00, выехать нужно до 12:00. Даже если вы прибудете поздно ночью, вас встретят на круглосуточной стойке регистрации и помогут с размещением. Лифт внутри есть. Для людей с особенностями здоровья доступны необходимые удобства.
+
+  Если вы на машине, можете оставить её на парковке. Если вы добираетесь своим ходом, воспользуйтесь услугой трансфера.
+
+  К вашим услугам: химчистка, прачечная, обслуживание номеров, консьерж-сервис, камера хранения, ускоренная регистрация заезда/отъезда.
+  `,
+    address: "Rостов-на-Дону, улица Красных Зорь, 117",
+    rating: {
+      votesCount: "554",
+      rating: 4.3,
+      stars: 4,
+    },
+    ratingsCount: 366,
+    // award: {
+    //   name: "Best of 2022",
+    //   section: "Beachfront",
+    // },
+    chart: {
+      place: 2,
+      category: "Beachfront",
+    },
+    price: 2890,
+    picture: "/pics/hotel-7.jpg",
+    rooms: [20],
+    reviews: [
+      {
+        id: 1,
+        name: "Алла Медведева",
+        rating: 5,
+        text: "Очень довольны тем, что для посещения Ростова выбрали эту гостиницу. Понравилось все. Отличное расположение - недалеко вокзал, рядом центр и тихое место. На высоте весь быт - номера, уборка, еда. Выше всяких похвал весь персонал - даже просто ежедневное приветливое общение создаёт настроение. Могу сказать, кто останется недовольным - те, кто привык к пятизвездочным отелям в Эмиратах, наверное, найдут поводы для неудовольства. Чтобы прочувствовать дух города надо приезжать минимум дня на три. Нам здесь очень понравилось!!! Отель Мартон - лучший!!!!",
+      },
+    ],
+    city: 7,
+  },
+  {
+    id: 8,
+    title: "Мартон Победа",
+    subtitle:
+      "Гостиница Мартон Победа расположена в городе Волгоград в 4,4 км от центра.",
+    description: `Здесь созданы все условия для комфортного проживания — есть кондиционер, телевизор, фен, утюг, чай/кофе в номерах, посуда, кофеварка, микроволновая печь, посудомойка, кухонная плита, сейф, отопление, терраса, мини-бар. Вы можете выбрать на Яндекс Путешествиях любой из 80 доступных сейчас номеров. По запросу предоставляются номера для курящих. Уборка — каждый день.
+
+  В гостинице есть бар, конференц-зал. И вы наверняка захотите отдохнуть у бассейна — он тут тоже есть. Есть возможность взять напрокат машину, велосипед, мотоцикл.
+
+  У каждого гостя будет доступ в интернет, вы сможете выложить фотографии, отправить файл или позвонить родным по видео.
+
+  Планируйте поездку так, чтобы точно заселиться в гостиницу. Заезд здесь начинается с 14:00, выехать нужно до 12:00. Даже если вы прибудете поздно ночью, вас встретят на круглосуточной стойке регистрации и помогут с размещением. Лифт внутри есть. Для людей с особенностями здоровья доступны необходимые удобства.
+
+  Если вы на машине, можете оставить её на парковке. Если вы добираетесь своим ходом, воспользуйтесь услугой трансфера.
+
+  К вашим услугам: химчистка, прачечная, обслуживание номеров, консьерж-сервис, камера хранения, ускоренная регистрация заезда/отъезда.
+  `,
+    address: "Rостов-на-Дону, улица Красных Зорь, 117",
+    rating: {
+      votesCount: "754",
+      rating: 4.3,
+      stars: 4,
+    },
+    ratingsCount: 754,
+    // award: {
+    //   name: "Best of 2022",
+    //   section: "Beachfront",
+    // },
+    chart: {
+      place: 2,
+      category: "Beachfront",
+    },
+    price: 2890,
+    picture: "/pics/hotel-8.jpg",
+    rooms: [21, 22],
+    reviews: [
+      {
+        id: 1,
+        name: "Юлия Деркунская",
+        rating: 5,
+        text: "Все супер! Место расположения удобное, особенно для путешествующих транзитом через Волгоград. Много парковочных и перед зданием и за ним. Приветливый персонал. Номер чистый,просто идеальный! Туалет, душ, белоснежные полотенца и постельное белье. Один ньюанс. Мы почти сутки в дороге-хотелось уснуть. Из других номеров ничего не слышно, но, наш номер находился на первом этаже, слышно через дверь все разговоры сотрудников на ресепшене. И это подпортило мне отдых.",
+      },
+    ],
+    city: 4,
+  },
+  {
+    id: 9,
+    title: "Marton City",
+    subtitle:
+      "Гостиница Marton City расположена в городе Воронеж в 3,6 км от центра.",
+    description: `Здесь созданы все условия для комфортного проживания — есть кондиционер, телевизор, фен, утюг, чай/кофе в номерах, посуда, кофеварка, микроволновая печь, посудомойка, кухонная плита, сейф, отопление, терраса, мини-бар. Вы можете выбрать на Яндекс Путешествиях любой из 80 доступных сейчас номеров. По запросу предоставляются номера для курящих. Уборка — каждый день.
+
+  В гостинице есть бар, конференц-зал. И вы наверняка захотите отдохнуть у бассейна — он тут тоже есть. Есть возможность взять напрокат машину, велосипед, мотоцикл.
+
+  У каждого гостя будет доступ в интернет, вы сможете выложить фотографии, отправить файл или позвонить родным по видео.
+
+  Планируйте поездку так, чтобы точно заселиться в гостиницу. Заезд здесь начинается с 14:00, выехать нужно до 12:00. Даже если вы прибудете поздно ночью, вас встретят на круглосуточной стойке регистрации и помогут с размещением. Лифт внутри есть. Для людей с особенностями здоровья доступны необходимые удобства.
+
+  Если вы на машине, можете оставить её на парковке. Если вы добираетесь своим ходом, воспользуйтесь услугой трансфера.
+
+  К вашим услугам: химчистка, прачечная, обслуживание номеров, консьерж-сервис, камера хранения, ускоренная регистрация заезда/отъезда.
+  `,
+    address: "Воронеж, улица 45-й Стрелковой Дивизии, 27",
+    rating: {
+      votesCount: "359",
+      rating: 4.5,
+      stars: 4,
+    },
+    ratingsCount: 359,
+    // award: {
+    //   name: "Best of 2022",
+    //   section: "Beachfront",
+    // },
+    chart: {
+      place: 3,
+      category: "Beachfront",
+    },
+    price: 2890,
+    picture: "/pics/hotel-9.jpg",
+    rooms: [23, 24, 25, 26],
+    reviews: [
+      {
+        id: 1,
+        name: `
+@kino_stihi_foto_hmelevskoyserj
+`,
+        rating: 4,
+        text: "Выбор на этот отель пал из-за приемлемого соотношения цены и устраивающего меня качества, а также из-за относительной близости к центру города. По состоянию на 8.03.24 номер обошёлся мне в 4тыс.руб.за сутки +6ч. Номер чистый, в персонале приветливые девушки. Имеется собственная столовая, которую я и запечатлел на фото. В ней подают только завтраки (на фото), которые не входят в стоимость. Цена завтрака 700р. Кроме показанного В него может входить пакетик кофе 3 в 1 и кексы. При желании можно дополнительно заказать кофе из кофемашины за 100р. В номере стандарт: двуспальная кровать, телевизор, кондиционер, телефон, зеркало, прихожая с обувницей и вешалками, фен, полотенца, туалетная бумага, гель для душа и рук, поднос, 2 стакана, 2 бутылочки питьевой воды 0,33л, 2 баночки колы 0,33л, 2 банки пива 0,5л, чипсы, 2 прикроватные тумбочки. В номере и отеле чисто. Уборщица сразу же после нашего выезда пошла прибраться для сл постояльцев. Помогли вызвать такси, можно было оставить вещи на время до отъезда на вокзал. Вердикт: вполне приемлемый по деньгам отель,если есть необходимость остановиться.",
+      },
+    ],
+    city: 6,
+  },
+
+  {
+    id: 10,
+    title: "Мартон Пелас",
+    subtitle:
+      "Гостиница Мартон Пелас расположена в городе Калининград в 1,5 км от центра.",
+    description: `Здесь созданы все условия для комфортного проживания — есть кондиционер, телевизор, фен, утюг, чай/кофе в номерах, посуда, кофеварка, микроволновая печь, посудомойка, кухонная плита, сейф, отопление, терраса, мини-бар. Вы можете выбрать на Яндекс Путешествиях любой из 80 доступных сейчас номеров. По запросу предоставляются номера для курящих. Уборка — каждый день.
+
+  В гостинице есть бар, конференц-зал. И вы наверняка захотите отдохнуть у бассейна — он тут тоже есть. Есть возможность взять напрокат машину, велосипед, мотоцикл.
+
+  У каждого гостя будет доступ в интернет, вы сможете выложить фотографии, отправить файл или позвонить родным по видео.
+
+  Планируйте поездку так, чтобы точно заселиться в гостиницу. Заезд здесь начинается с 14:00, выехать нужно до 12:00. Даже если вы прибудете поздно ночью, вас встретят на круглосуточной стойке регистрации и помогут с размещением. Лифт внутри есть. Для людей с особенностями здоровья доступны необходимые удобства.
+
+  Если вы на машине, можете оставить её на парковке. Если вы добираетесь своим ходом, воспользуйтесь услугой трансфера.
+
+  К вашим услугам: химчистка, прачечная, обслуживание номеров, консьерж-сервис, камера хранения, ускоренная регистрация заезда/отъезда.
+  `,
+    address: "Калининград, Большевистский переулок, 3",
+    rating: {
+      votesCount: "1531",
+      rating: 4.3,
+      stars: 4,
+    },
+    ratingsCount: 815,
+    // award: {
+    //   name: "Best of 2022",
+    //   section: "Beachfront",
+    // },
+    chart: {
+      place: 4,
+      category: "Beachfront",
+    },
+    price: 2890,
+    picture: "/pics/hotel-10.jpg",
+    rooms: [27, 28],
+    reviews: [
+      {
+        id: 1,
+        name: `Татьяна Фомина`,
+        rating: 4,
+        text: "Отель понравился. Действительно удобное расположение. Ресепшн и весь персонал приветливые и отзывчивые. Номер был полулюкс- просторный , удобный, ванна большая, но очень высокая. Для людей маленького роста или пожилых забраться, выбраться и не убиться очень трудно. Хотелось бы, чтобы предусмотрели какие-то ступеньки. В номере есть второй туалет с раковиной, что очень удобно)), холодильник, халаты, полотенца, фен, шампунь и гели для душа, кондиционер. Правда, питьевой воды в номере не было и нужно было с чайником ходить на шестой этаж или первый этаж в холл. Уборка в номерах ежедневная. Завтраки хорошие разнообразные и сытные. Столов и еды хватало, даже если пришли не к началу. Кофемашин было две)) Спасибо работникам отеля за приятный отдых!",
+      },
+    ],
+    city: 3,
+  },
+  {
+    id: 11,
+    title: "Мартон Волга",
+    subtitle:
+      "Гостиница Мартон Волга расположена в городе Нижний Новгород в 2,4 км от центра.",
+    description: `Здесь созданы все условия для комфортного проживания — есть кондиционер, телевизор, фен, утюг, чай/кофе в номерах, посуда, кофеварка, микроволновая печь, посудомойка, кухонная плита, сейф, отопление, терраса, мини-бар. Вы можете выбрать на Яндекс Путешествиях любой из 80 доступных сейчас номеров. По запросу предоставляются номера для курящих. Уборка — каждый день.
+
+  В гостинице есть бар, конференц-зал. И вы наверняка захотите отдохнуть у бассейна — он тут тоже есть. Есть возможность взять напрокат машину, велосипед, мотоцикл.
+
+  У каждого гостя будет доступ в интернет, вы сможете выложить фотографии, отправить файл или позвонить родным по видео.
+
+  Планируйте поездку так, чтобы точно заселиться в гостиницу. Заезд здесь начинается с 14:00, выехать нужно до 12:00. Даже если вы прибудете поздно ночью, вас встретят на круглосуточной стойке регистрации и помогут с размещением. Лифт внутри есть. Для людей с особенностями здоровья доступны необходимые удобства.
+
+  Если вы на машине, можете оставить её на парковке. Если вы добираетесь своим ходом, воспользуйтесь услугой трансфера.
+
+  К вашим услугам: химчистка, прачечная, обслуживание номеров, консьерж-сервис, камера хранения, ускоренная регистрация заезда/отъезда.
+  `,
+    address: "Нижний Новгород, Ошарская улица, 87",
+    rating: {
+      votesCount: "746",
+      rating: 4.4,
+      stars: 4,
+    },
+    ratingsCount: 746,
+    // award: {
+    //   name: "Best of 2022",
+    //   section: "Beachfront",
+    // },
+    chart: {
+      place: 3,
+      category: "Beachfront",
+    },
+    price: 2890,
+    picture: "/pics/hotel-11.jpg",
+    rooms: [29, 30],
+    reviews: [
+      {
+        id: 1,
+        name: `Ангелина`,
+        rating: 5,
+        text: "Очень уютный отель!Останавливаемся с мужем во второй раз здесь. Нам все очень нравится,номер в котором мы жили уютный,чистый и тёплый. Все есть необходимое для комфортного проживания, полотенца,тапочки,мыльные принадлежности,фен,чайник,холодильник. В Холле есть гладильная и утюг,микроволновка, куллер с водой на этажах.Очень хорошо высыпаемся, когда останавливаемся в Мартоне, удобные матрасы и подушки. На ресепшене очень милые улыбчивые девушки,всегда все подскажут и помогут.Сразу чувствуется радушие и гостеприимство Нижнего Новгорода,персонал на пять с плюсом. Расположение отеля очень удачное,рядом много продуктовых магазинов,не далеко от центра,до кремля и канатной дороги на машине 10 минут. Также хочется отметить что при отеле имеются две сауны,мы во второй раз посещаем их.Шикарная,горячая финская Сауна, чистый бассейн,бильярд,вобщем мы уезжаем с Мартона всегда довольные,раслабленные,отдохнувшие телом и душой!!Спасибо всему персоналу за тёплые приёмы!!!!",
+      },
+    ],
+    city: 5,
+  },
 ];
 
 /**
@@ -609,7 +505,7 @@ const hotelsMock: Hotel[] = [
  *
  * @param entity - something with "picture" property
  */
-function addThumb<T extends { picture: string }>(
+export function addThumb<T extends { picture: string }>(
   entity: T
 ): T & { pictureThumb: string } {
   const pictureName = entity.picture
@@ -630,7 +526,7 @@ function addThumbs(hotels: Hotel[]): Hotel[] {
     /**
      * Add picture thumb to rooms as well
      */
-    hotel.rooms = hotel.rooms.map(addThumb);
+    // hotel.rooms = hotel.rooms.map(addThumb);
 
     return addThumb(hotel);
   });

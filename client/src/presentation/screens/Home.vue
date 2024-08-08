@@ -277,6 +277,7 @@ onBeforeUnmount(() => {
               />
             </template>
           </ListItem>
+    
           <ListItemExpandable
             :opened="startDatePickerShowed"
           >
@@ -306,12 +307,18 @@ onBeforeUnmount(() => {
               @date-pick="(date) => setEndDate(date)"
             />
           </ListItemExpandable>
+      
           <ListItem
             label="Расположение"
             right-icon="chevron-right"
             :right-icon-label="location?.title"
             to="/location"
           />
+          <!-- <ListItem label="Дополнительно" right-icon="">
+            <template>
+
+            </template>
+          </ListItem> -->
         </List>
       </Section>
       <Section

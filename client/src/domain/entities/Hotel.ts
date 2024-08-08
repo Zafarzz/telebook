@@ -14,7 +14,7 @@ export default interface Hotel {
   rating: Rating;
   award?: Award;
   chart: Chart;
-  rooms: Room[];
+  rooms: number[];
   reviews: Review[];
   city: number;
 }

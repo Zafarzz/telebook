@@ -5,6 +5,7 @@ import { type ComputedRef, computed, onBeforeUnmount, onMounted, ref } from 'vue
 import { reviews } from '@/infra/store/reviews/mock/reviews'
 import { useTelegram, useThumbnail, useLottie } from '@/application/services'
 import { useRouter } from 'vue-router'
+import { rooms } from '@/infra/store/rooms'
 
 const props = defineProps({
   id: Number,
@@ -20,7 +21,7 @@ const id = computed(() => {
  * Hotel got by router param
  */
 const { hotel } = id.value !== undefined ? useHotel(id as ComputedRef<number>) : { hotel: undefined }
-
+const roomsHotel=hotel?.value?.rooms.map((room)=>rooms[room as number])
 /**
  * Methods for Showing/hiding Back button
  */
@@ -60,7 +61,7 @@ const easterEgg = {
         return
       }
 
-      const randomRoom = hotel.value.rooms[Math.floor(Math.random() * hotel.value.rooms.length)]
+      const randomRoom = rooms[Math.floor(Math.random() * hotel.value.rooms.length)]
 
       viewingRoomsIds.value = [randomRoom.id]
 
@@ -154,7 +155,7 @@ onBeforeUnmount(() => {
       >
         <List gapped>
           <ListItem
-            v-for="room in hotel.rooms"
+            v-for="room in roomsHotel"
             :id="room.id"
             :key="hotel.id + '@' + room.id"
             :title="room.title"
@@ -162,6 +163,7 @@ onBeforeUnmount(() => {
             :to="`/room/${hotel.id}/${room.id}`"
             big-avatar
             standalone
+            big
           >
             <template #picture>
               <Avatar
