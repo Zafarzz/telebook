@@ -1,5 +1,6 @@
 import type Hotel from "@/domain/entities/Hotel";
 import Thumbnails from "@/infra/store/thumbs/thumbs.json";
+import { rooms } from "../../rooms";
 
 const hotelsMock: Hotel[] = [
   {
@@ -523,6 +524,8 @@ export function addThumb<T extends { picture: string }>(
  */
 function addThumbs(hotels: Hotel[]): Hotel[] {
   return hotels.map((hotel) => {
+    const price = Math.min(...hotel.rooms.map((e) => rooms[e].price));
+    hotel.price = price;
     /**
      * Add picture thumb to rooms as well
      */
