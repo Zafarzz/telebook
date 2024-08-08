@@ -214,7 +214,7 @@ const hotelsMock: Hotel[] = [
     },
     price: 0,
     picture: "/pics/hotel-4.jpg",
-    rooms: [],
+    rooms: [15, 20],
     reviews: [
       {
         id: 1,
